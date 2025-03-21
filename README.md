@@ -1,27 +1,91 @@
-# ScrollViewStyle
+# ScrollUI
 
-Usage example:
+`ScrollUI` is a Swift package that provides a powerful way to observe and respond to scroll state changes in SwiftUI. It enables developers to track scrolling behavior and geometry updates efficiently.
 
- 1. Add a property to track the state of the `ScrollView`
-    ```
-    @ScrollState var state
-    ```
- 2. Use the `scrollViewStyle` modifier
-    ```
-    .scrollViewStyle(.defaultStyle($state))
-    ```
-TestView
+## Features
 
-```
-struct TestView: View {
-    @ScrollState var state
+- Observe scroll state changes (e.g., `idle`, `interacting`, `decelerating`, `animating`).
+- Respond to scroll geometry updates (e.g., content offset changes).
+- Provides a modular and reusable way to enhance scroll behavior.
+
+## Installation
+
+### Swift Package Manager
+
+To integrate `ScrollUI` into your project, add it as a dependency using Swift Package Manager:
+
+1. Open Xcode and go to **File > Add Packages...**
+2. Enter the repository URL: `https://github.com/relativejoe/ScrollUI.git`
+3. Choose the latest version and add the package.
+
+## Usage
+
+### Observing Scroll State Changes
+
+You can track the state of a `ScrollView` using the `onScrollStateChange` modifier:
+
+```swift
+import ScrollUI
+
+struct ContentView: View {
+    @State private var isScrolling = false
+
     var body: some View {
         ScrollView {
-            ...
-        }.scrollViewStyle(.defaultStyle($state))
-        .onChange(of: state.isDragging) { newValue in
-            print(newValue)
+            VStack(spacing: 20) {
+                ForEach(0..<50) { index in
+                    Text("Item \(index)")
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                        .background(Color.gray.opacity(0.2))
+                        .cornerRadius(8)
+                }
+            }
+            .padding()
         }
+        .onScrollStateChange { _, newState, _ in
+            isScrolling = newState.isScrolling
+        }.scrollViewStyle(.default)
     }
 }
 ```
+
+### Observing Scroll Geometry Changes
+
+To track changes in `ScrollGeometry`, use `onScrollGeometryChange`:
+
+```swift
+ScrollView {
+    VStack(spacing: 20) {
+        ForEach(0..<50) { index in
+            Text("Item \(index)")
+                .frame(maxWidth: .infinity)
+                .padding()
+                .background(Color.blue.opacity(0.2))
+                .cornerRadius(8)
+        }
+    }
+    .padding()
+}
+.onScrollGeometryChange(of: { $0.contentOffset.y > 100 }) { wasBeyond, isBeyond in
+    print("Scrolled beyond 100: \(isBeyond)")
+}.scrollViewStyle(.default)
+```
+
+## Scroll States
+
+`ScrollUI` provides the following scroll states:
+
+- `.idle`: The scroll view is not moving.
+- `.interacting`: The user is actively scrolling.
+- `.decelerating`: The scroll view is slowing down after user interaction.
+- `.animating`: The scroll view is in an animated transition.
+
+## Contributions
+
+Contributions are welcome! If you’d like to improve this package, feel free to open an issue or submit a pull request.
+
+## Contact
+
+For questions or support, reach out via GitHub issues.
+
