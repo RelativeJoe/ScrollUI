@@ -1,5 +1,10 @@
 # ScrollUI
 
+[![GitHub Release](https://img.shields.io/github/release/relativejoe/ScrollUI.svg?include_prereleases)](https://github.com/buildexperience/ScrollUI/releases)
+[![Platforms](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2FRelativeJoe%2FScrollUI%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/RelativeJoe/ScrollUI)
+[![Swift Versions](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2FRelativeJoe%2FScrollUI%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/RelativeJoe/ScrollUI)
+[![License](https://img.shields.io/github/license/relativejoe/ScrollUI)](https://github.com/relativejoe/ScrollUI/blob/main/LICENSE)
+
 `ScrollUI` is a Swift package that provides a powerful way to observe and respond to scroll state changes in SwiftUI. It enables developers to track scrolling behavior and geometry updates efficiently.
 
 ## Features
