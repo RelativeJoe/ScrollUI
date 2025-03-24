@@ -86,9 +86,23 @@ ScrollView {
 - `.decelerating`: The scroll view is slowing down after user interaction.
 - `.animating`: The scroll view is in an animated transition.
 
+
+## Documentation
+
+The [documentation](https://swiftpackageindex.com/RelativeJoe/ScrollUI/master/documentation/scrollui) is provided by [swiftpackageindex](https://swiftpackageindex.com).
+
+
+## Dependencies
+
+ScrollUI relies on other packages for specific functionalities:
+
+- [siteline/swiftui-introspect](https://github.com/siteline/swiftui-introspect)
+
+
 ## Contributions
 
 Contributions are welcome! If you’d like to improve this package, feel free to open an issue or submit a pull request.
+
 
 ## Contact
 
