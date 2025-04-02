@@ -67,12 +67,11 @@ extension View {
     ///
     ///     ScrollView {
     ///         // ...
-    ///     }
-    ///     .onScrollStateChange { _, newState in
+    ///     }.onScrollStateChange { _, newState in
     ///         if newState == .decelerating || newState == .idle {
     ///             selection = updateSelection()
     ///         }
-    ///     }
+    ///     }.scrollViewStyle(.default)
     ///
     /// The system can also provide you with the geometry of the scroll view
     /// at the time of the state change. You can use the geometry to
@@ -87,8 +86,7 @@ extension View {
     ///
     ///     ScrollView {
     ///         // ...
-    ///     }
-    ///     .onScrollStateChange { oldState, newState, context in
+    ///     }.onScrollStateChange { oldState, newState, context in
     ///         if newState == .interacting {
     ///             lastOffset = context.geometry.contentOffset.y
     ///         }
@@ -99,7 +97,7 @@ extension View {
     ///         } else {
     ///             hidesToolbarContent = false
     ///         }
-    ///     }
+    ///     }.scrollViewStyle(.default)
     ///
     /// - Parameters:
     ///   - action: A closure to run when the scroll state changes.
@@ -107,6 +105,9 @@ extension View {
     ///   - newPhase: The new scroll state.
     ///   - geometry: The scroll geometry at the time of the scroll
     ///     state change.
+    ///
+    /// - Note: You must apply the default ``ScrollViewStyle``
+    /// after this modifier using ``scrollViewStyle(_:)``.
     @inlinable public func onScrollStateChange(
         _ action: @escaping (
             _ oldState: ScrollState,

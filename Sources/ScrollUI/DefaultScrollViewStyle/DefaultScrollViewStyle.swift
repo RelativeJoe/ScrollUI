@@ -13,8 +13,7 @@ import SwiftUI
 /// ```swift
 /// ScrollView {
 ///     // Scrollable content
-/// }
-/// .scrollViewStyle(.default)
+/// }.scrollViewStyle(.default)
 /// ```
 public struct DefaultScrollViewStyle: ScrollViewStyle {
     /// The coordinator responsible for managing scroll-related state.
@@ -38,8 +37,7 @@ extension ScrollViewStyle where Self == DefaultScrollViewStyle {
     /// ```swift
     /// ScrollView {
     ///     // Scrollable content
-    /// }
-    /// .scrollViewStyle(.default)
+    /// }.scrollViewStyle(.default)
     /// ```
     public static var `default`: DefaultScrollViewStyle {
         return DefaultScrollViewStyle()

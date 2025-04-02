@@ -8,7 +8,7 @@
 import Foundation
 
 /// A type that provides you with more content when the phase of a scroll view changes.
-public struct ScrollContext {
+public struct ScrollContext: Equatable, Hashable, Sendable {
     /// The geometry of the scroll view at the time of the scroll phase change.
     public var geometry = ScrollGeometry()
     
@@ -16,7 +16,8 @@ public struct ScrollContext {
     public var velocity: CGVector?
 }
 
-public struct ScrollGeometry {
+/// A type that defines the geometry of a scroll view.
+public struct ScrollGeometry: Equatable, Hashable, Sendable {
     /// The content offset of the scroll view.
     public var contentOffset = CGPoint.zero
     
