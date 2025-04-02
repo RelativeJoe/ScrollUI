@@ -72,12 +72,11 @@ extension View {
     ///
     ///     ScrollView {
     ///         // ...
-    ///     }
-    ///     .onScrollGeometryChange(
+    ///     }.onScrollGeometryChange(
     ///         of: {$0.contentOffset.y > 100}
     ///     ) {  wasBeyondPoint, isBeyondPoint in
     ///         self.isBeyondPoint = isBeyondPoint
-    ///     }
+    ///     }.scrollViewStyle(.default)
     ///
     /// - Parameters:
     ///   - transform: A closure that transforms a ``ScrollGeometry``
@@ -85,6 +84,9 @@ extension View {
     ///   - action: A closure to run when the transformed data changes.
     ///   - oldValue: The old value that failed the comparison check.
     ///   - newValue: The new value that failed the comparison check.
+    ///
+    /// - Note: You must apply the default ``ScrollViewStyle``
+    /// after this modifier using ``scrollViewStyle(_:)``.
     @inlinable public func onScrollGeometryChange<T: Equatable>(
         of transform: @escaping (ScrollGeometry) -> T,
         action: @escaping (_ oldValue: T, _ newValue: T) -> Void

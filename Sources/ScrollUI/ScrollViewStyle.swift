@@ -9,7 +9,8 @@ import SwiftUI
 
 /// Requirements for defining as tyle for a ``ScrollView``.
 @MainActor public protocol ScrollViewStyle {
-    /// The associated type for the coordinator, which must conform to UIScrollViewDelegate and ObservableObject.
+    /// The associated type for the coordinator,
+    /// which must conform to ``UIScrollViewDelegate`` and ``ObservableObject``.
     associatedtype Coordinator: UIScrollViewDelegate & ObservableObject
     
     /// The coordinator instance responsible for handling scroll events.

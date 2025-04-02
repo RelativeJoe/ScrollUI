@@ -28,8 +28,10 @@ internal struct ScrollViewStyleModifider<Style: ScrollViewStyle>: ViewModifier {
                 .scrollView,
                 on: .iOS(.v13, .v14, .v15, .v16, .v17, .v18)
             ) { scrollView in
-                style.update(scrollView)
-                scrollView.delegate = style.coordinator
+                Task { @MainActor in
+                    style.update(scrollView)
+                    scrollView.delegate = style.coordinator
+                }
             }.environmentObject(style.coordinator)
     }
 }
